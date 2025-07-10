@@ -5,7 +5,7 @@ import { OpenAI } from 'openai';
 export const dynamic = 'force-dynamic';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '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',
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function POST(request: NextRequest) {
