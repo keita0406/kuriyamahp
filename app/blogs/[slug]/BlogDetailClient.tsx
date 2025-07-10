@@ -73,8 +73,28 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
 
   // コンテンツのHTMLを安全に表示するためのヘルパー
   const createMarkup = (content: string) => {
+    let htmlContent = content;
+    
+    // 見出しの変換（H1, H2, H3）
+    htmlContent = htmlContent.replace(/^### (.+)$/gm, '<h3 class="blog-h3">$1</h3>');
+    htmlContent = htmlContent.replace(/^## (.+)$/gm, '<h2 class="blog-h2">$1</h2>');
+    htmlContent = htmlContent.replace(/^# (.+)$/gm, '<h1 class="blog-h1">$1</h1>');
+    
+    // 太字の変換
+    htmlContent = htmlContent.replace(/\*\*(.+?)\*\*/g, '<strong class="blog-bold">$1</strong>');
+    
+    // 重要なポイント（▶︎マーカー）
+    htmlContent = htmlContent.replace(/^▶︎ (.+)$/gm, '<div class="blog-point">▶︎ $1</div>');
+    
+    // 注意事項や枠囲み（◼︎マーカー）
+    htmlContent = htmlContent.replace(/^◼︎ (.+)$/gm, '<div class="blog-box">$1</div>');
+    
+    // リスト項目（・）
+    htmlContent = htmlContent.replace(/^・(.+)$/gm, '<li class="blog-list">$1</li>');
+    
     // 改行を<br>タグに変換
-    const htmlContent = content.replace(/\n/g, '<br />');
+    htmlContent = htmlContent.replace(/\n/g, '<br />');
+    
     return { __html: htmlContent };
   };
 
@@ -200,7 +220,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
               )}
 
               <div 
-                className="prose prose-lg max-w-none text-gray-800 leading-relaxed whitespace-pre-wrap"
+                className="blog-content prose prose-lg max-w-none text-gray-800 leading-relaxed"
                 dangerouslySetInnerHTML={createMarkup(blog.content)}
               />
             </div>

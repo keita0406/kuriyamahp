@@ -219,3 +219,220 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===========================================
+   Blog Content Styles - 美しいブログデザイン
+   ========================================== */
+
+/* H1 見出し - グラデーション背景 */
+.blog-content .blog-h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin: 2rem 0 1rem 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0.75rem;
+  border-left: 5px solid #3b82f6;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-content .blog-h1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+}
+
+/* H2 見出し - 緑のアクセント */
+.blog-content .blog-h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 2rem 0 1rem 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 100%);
+  border-left: 4px solid #10b981;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+  position: relative;
+}
+
+.blog-content .blog-h2::before {
+  content: '◆';
+  color: #10b981;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* H3 見出し - 黄色のアクセント */
+.blog-content .blog-h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 1.5rem 0 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 3px solid #f59e0b;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15);
+  position: relative;
+}
+
+.blog-content .blog-h3::before {
+  content: '▶';
+  color: #f59e0b;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* 太字テキスト - 赤色強調 */
+.blog-content .blog-bold {
+  font-weight: 700;
+  color: #dc2626;
+  background: linear-gradient(90deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  border: 1px solid #fecaca;
+  box-shadow: 0 1px 3px rgba(220, 38, 38, 0.1);
+}
+
+/* 重要ポイント - 青色ボックス */
+.blog-content .blog-point {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(90deg, #dbeafe 0%, #bfdbfe 100%);
+  border-left: 4px solid #3b82f6;
+  border-radius: 0.5rem;
+  color: #1e40af;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+  position: relative;
+}
+
+.blog-content .blog-point::before {
+  content: '💡';
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* 注意事項ボックス - シアン色 */
+.blog-content .blog-box {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #0ea5e9;
+  border-radius: 0.75rem;
+  color: #0c4a6e;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+  position: relative;
+}
+
+.blog-content .blog-box::before {
+  content: '📌';
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+/* リストアイテム - グレー背景 */
+.blog-content .blog-list {
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, #f9fafb 0%, #f3f4f6 100%);
+  border-left: 3px solid #6b7280;
+  border-radius: 0.25rem;
+  list-style: none;
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.blog-content .blog-list::before {
+  content: '✓';
+  color: #10b981;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* 段落のスタイル改善 */
+.blog-content p {
+  margin: 1.25rem 0;
+  line-height: 1.8;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+/* 改行の調整 */
+.blog-content br {
+  display: block;
+  margin: 0.75rem 0;
+  content: "";
+}
+
+/* ホバーエフェクト */
+.blog-content .blog-point:hover,
+.blog-content .blog-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .blog-content .blog-h1 {
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .blog-content .blog-h2 {
+    font-size: 1.35rem;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .blog-content .blog-h3 {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.7rem;
+  }
+  
+  .blog-content .blog-point,
+  .blog-content .blog-box {
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* アニメーション効果 */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.blog-content .blog-h1,
+.blog-content .blog-h2,
+.blog-content .blog-h3 {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* 印刷時のスタイル調整 */
+@media print {
+  .blog-content .blog-h1,
+  .blog-content .blog-h2,
+  .blog-content .blog-h3,
+  .blog-content .blog-point,
+  .blog-content .blog-box {
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
