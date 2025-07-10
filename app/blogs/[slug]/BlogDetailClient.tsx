@@ -76,24 +76,61 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
     let htmlContent = content;
     
     // 見出しの変換（H1, H2, H3）
-    htmlContent = htmlContent.replace(/^### (.+)$/gm, '<h3 class="blog-h3">$1</h3>');
-    htmlContent = htmlContent.replace(/^## (.+)$/gm, '<h2 class="blog-h2">$1</h2>');
-    htmlContent = htmlContent.replace(/^# (.+)$/gm, '<h1 class="blog-h1">$1</h1>');
+    htmlContent = htmlContent.replace(/^### (.+)$/gm, '<h3 class="blog-h3"><span class="blog-h3-icon">🔹</span>$1</h3>');
+    htmlContent = htmlContent.replace(/^## (.+)$/gm, '<h2 class="blog-h2"><span class="blog-h2-icon">🔸</span>$1</h2>');
+    htmlContent = htmlContent.replace(/^# (.+)$/gm, '<h1 class="blog-h1"><span class="blog-h1-icon">⭐</span>$1</h1>');
     
     // 太字の変換
-    htmlContent = htmlContent.replace(/\*\*(.+?)\*\*/g, '<strong class="blog-bold">$1</strong>');
+    htmlContent = htmlContent.replace(/\*\*(.+?)\*\*/g, '<strong class="blog-bold">🔥 $1</strong>');
+    
+    // 黄色い付箋風（🔖マーカー）
+    htmlContent = htmlContent.replace(/^🔖 (.+)$/gm, '<div class="blog-sticky-note">📌 $1</div>');
     
     // 重要なポイント（▶︎マーカー）
-    htmlContent = htmlContent.replace(/^▶︎ (.+)$/gm, '<div class="blog-point">▶︎ $1</div>');
+    htmlContent = htmlContent.replace(/^▶︎ (.+)$/gm, '<div class="blog-point">💡 $1</div>');
     
     // 注意事項や枠囲み（◼︎マーカー）
-    htmlContent = htmlContent.replace(/^◼︎ (.+)$/gm, '<div class="blog-box">$1</div>');
+    htmlContent = htmlContent.replace(/^◼︎ (.+)$/gm, '<div class="blog-box">⚠️ $1</div>');
+    
+    // 引用ブロック（>マーカー）
+    htmlContent = htmlContent.replace(/^> (.+)$/gm, '<blockquote class="blog-quote">💬 "$1"</blockquote>');
+    
+    // コードブロック（```マーカー）
+    htmlContent = htmlContent.replace(/```([^`]+)```/g, '<pre class="blog-code">💻 $1</pre>');
+    
+    // インラインコード（`マーカー）
+    htmlContent = htmlContent.replace(/`([^`]+)`/g, '<code class="blog-inline-code">$1</code>');
+    
+    // テーブルの変換（|区切り）
+    htmlContent = htmlContent.replace(/^\|(.+)\|$/gm, (match, content) => {
+      const cells = content.split('|').map((cell: string) => cell.trim());
+      const isHeader = content.includes('---');
+      if (isHeader) return ''; // ヘッダー区切り行は無視
+      
+      const cellTags = cells.map((cell: string) => 
+        cell.includes('**') 
+          ? `<th class="blog-table-header">${cell.replace(/\*\*/g, '')}</th>`
+          : `<td class="blog-table-cell">${cell}</td>`
+      ).join('');
+      
+      return `<tr class="blog-table-row">${cellTags}</tr>`;
+    });
+    
+    // テーブル全体をラップ
+    htmlContent = htmlContent.replace(/(<tr class="blog-table-row">[\s\S]*?<\/tr>)/gm, 
+      '<table class="blog-table"><tbody>$1</tbody></table>');
     
     // リスト項目（・）
-    htmlContent = htmlContent.replace(/^・(.+)$/gm, '<li class="blog-list">$1</li>');
+    htmlContent = htmlContent.replace(/^・(.+)$/gm, '<li class="blog-list">✅ $1</li>');
     
-    // 改行を<br>タグに変換
-    htmlContent = htmlContent.replace(/\n/g, '<br />');
+    // 空行を段落区切りに変換
+    htmlContent = htmlContent.replace(/\n\s*\n/g, '</p><p class="blog-paragraph">');
+    
+    // 段落でラップ
+    htmlContent = `<p class="blog-paragraph">${htmlContent}</p>`;
+    
+    // 単独の改行を適度なスペースに変換
+    htmlContent = htmlContent.replace(/\n/g, '<br class="blog-break" />');
     
     return { __html: htmlContent };
   };
