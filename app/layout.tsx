@@ -1,10 +1,16 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Dancing_Script } from 'next/font/google';
+import { Inter, Dancing_Script, Noto_Sans_JP } from 'next/font/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
+});
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-noto-sans-jp',
 });
 
 const dancingScript = Dancing_Script({
@@ -31,13 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={`${inter.className} ${dancingScript.variable} antialiased`}>
+      <body className={`${inter.className} ${notoSansJP.variable} ${dancingScript.variable} antialiased`}>
         {children}
       </body>
     </html>

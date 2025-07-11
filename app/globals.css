@@ -221,594 +221,236 @@ a:focus-visible {
 }
 
 /* ===========================================
-   Blog Content Styles - プロフェッショナルブログデザイン
-   参考: 添付画像のベストプラクティスを全て反映
+   Blog Content Styles - シンプルで読みやすいデザイン
    ========================================== */
 
 /* ベースコンテナの改善 */
 .blog-content {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
-  color: #2d3748;
-  line-height: 1.8;
-  letter-spacing: 0.025em;
+  font-family: var(--font-noto-sans-jp), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+  color: #374151;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
   word-break: break-word;
   overflow-wrap: break-word;
   max-width: none;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
-/* ===========================================
-   見出しデザイン - モダンで統一感のあるスタイル
-   ========================================== */
-
-/* H1 見出し - プレミアムグラデーション */
+/* H1 見出し - シンプルで読みやすく */
 .blog-content .blog-h1 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
-  color: white;
-  margin: 3rem 0 2rem 0;
-  padding: 2rem 2.5rem;
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
-  border-radius: 1.25rem;
-  border-left: 8px solid #6366f1;
-  box-shadow: 
-    0 20px 40px rgba(79, 70, 229, 0.3),
-    0 8px 20px rgba(124, 58, 237, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  position: relative;
-  overflow: hidden;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  transform: perspective(1000px) rotateX(2deg);
-  transition: all 0.3s ease;
-}
-
-.blog-content .blog-h1:hover {
-  transform: perspective(1000px) rotateX(0deg) translateY(-2px);
-  box-shadow: 
-    0 25px 50px rgba(79, 70, 229, 0.4),
-    0 12px 25px rgba(124, 58, 237, 0.3);
-}
-
-.blog-content .blog-h1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%);
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
-}
-
-/* H2 見出し - エレガントなアクセント */
-.blog-content .blog-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
   font-weight: 700;
-  color: #1a202c;
-  margin: 2.5rem 0 1.5rem 0;
-  padding: 1.5rem 2rem;
-  background: 
-    linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%),
-    linear-gradient(90deg, #10b981 0%, #059669 100%);
-  background-clip: padding-box, border-box;
-  border: 4px solid transparent;
-  border-left: 6px solid #10b981;
-  border-radius: 1rem;
-  box-shadow: 
-    0 8px 25px rgba(16, 185, 129, 0.15),
-    0 4px 10px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
+  color: #1f2937;
+  margin: 2rem 0 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid #3b82f6;
 }
 
-.blog-content .blog-h2::before {
-  content: '🔹';
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(16, 185, 129, 0.6)); }
-}
-
-/* H3 見出し - 温かみのあるデザイン */
-.blog-content .blog-h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+/* H2 見出し - シンプルで読みやすく */
+.blog-content .blog-h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 600;
-  color: #744210;
-  margin: 2rem 0 1rem 0;
-  padding: 1.25rem 1.75rem;
-  background: 
-    linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #f59e0b 100%);
-  border-left: 5px solid #f59e0b;
-  border-radius: 0.875rem;
-  box-shadow: 
-    0 6px 20px rgba(245, 158, 11, 0.2),
-    0 2px 8px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
+  color: #059669;
+  margin: 1.5rem 0 1rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #10b981;
 }
 
-.blog-content .blog-h3::before {
-  content: '🔸';
-  font-size: 1.25rem;
-  margin-right: 0.5rem;
-  filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.3));
+/* H3 見出し - シンプルで読みやすく */
+.blog-content .blog-h3 {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: #d97706;
+  margin: 1.25rem 0 0.75rem 0;
+  padding-left: 0.5rem;
+  border-left: 2px solid #f59e0b;
 }
 
-/* ===========================================
-   コンテンツ要素の改善
-   ========================================== */
-
-/* 太字テキスト - ダイナミックな強調 */
+/* 太字テキスト - シンプルな強調 */
 .blog-content .blog-bold {
   font-weight: 700;
   color: #dc2626;
-  background: linear-gradient(90deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 2px solid #fecaca;
-  box-shadow: 
-    0 2px 8px rgba(220, 38, 38, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  position: relative;
-  display: inline-block;
-  transform: scale(1);
-  transition: all 0.2s ease;
 }
 
-.blog-content .blog-bold:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25);
-}
-
-.blog-content .blog-bold::before {
-  content: '🔥';
-  margin-right: 0.5rem;
-  animation: flicker 1.5s ease-in-out infinite;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-/* 🔖 黄色い付箋風デザイン - 3D効果付き */
+/* 🔖 重要ポイント - シンプルな青色強調 */
 .blog-content .blog-sticky-note {
-  margin: 2rem 0;
-  padding: 1.75rem 2rem;
-  background: 
-    linear-gradient(135deg, #fef3c7 0%, #fde047 50%, #eab308 100%);
-  border: 3px dashed #f59e0b;
-  border-radius: 1rem;
-  color: #78350f;
-  font-weight: 700;
-  font-size: 1.125rem;
-  box-shadow: 
-    0 15px 35px rgba(245, 158, 11, 0.3),
-    0 5px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transform: rotate(-1.5deg);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 1.5rem 0;
+  padding: 0;
+  color: #1e40af;
+  font-weight: 600;
 }
 
-.blog-content .blog-sticky-note:hover {
-  transform: rotate(0deg) translateY(-5px) scale(1.02);
-  box-shadow: 
-    0 25px 50px rgba(245, 158, 11, 0.4),
-    0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.blog-content .blog-sticky-note::before {
-  content: '📌';
-  position: absolute;
-  top: -12px;
-  left: 25px;
-  font-size: 1.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  animation: pin-wiggle 3s ease-in-out infinite;
-}
-
-@keyframes pin-wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
-}
-
-/* 重要ポイント - プレミアムボックス */
+/* 重要ポイント - シンプルな青色ボックス */
 .blog-content .blog-point {
-  margin: 2rem 0;
-  padding: 1.75rem 2rem;
-  background: 
-    linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);
-  border-left: 6px solid #3b82f6;
-  border-radius: 1rem;
-  color: #1e3a8a;
-  font-weight: 600;
-  font-size: 1.125rem;
-  box-shadow: 
-    0 10px 30px rgba(59, 130, 246, 0.2),
-    0 4px 15px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.blog-content .blog-point::before {
-  content: '💡';
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { 
-    filter: brightness(1) drop-shadow(0 0 5px rgba(59, 130, 246, 0.3)); 
-  }
-  50% { 
-    filter: brightness(1.3) drop-shadow(0 0 15px rgba(59, 130, 246, 0.6)); 
-  }
-}
-
-/* 注意事項ボックス - アラート風 */
-.blog-content .blog-box {
-  margin: 2rem 0;
-  padding: 1.75rem 2rem;
-  background: 
-    linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
-  border: 3px solid #0ea5e9;
-  border-radius: 1rem;
-  color: #0c4a6e;
-  font-weight: 600;
-  font-size: 1.125rem;
-  box-shadow: 
-    0 12px 35px rgba(14, 165, 233, 0.25),
-    0 5px 15px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.blog-content .blog-box::before {
-  content: '⚠️';
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
-  animation: alert-bounce 2s ease-in-out infinite;
-}
-
-@keyframes alert-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-/* 💬 引用ブロック - エレガントデザイン */
-.blog-content .blog-quote {
-  margin: 2rem 0;
-  padding: 2rem 2.5rem;
-  background: 
-    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-  border-left: 8px solid #64748b;
-  border-radius: 1rem;
-  color: #475569;
-  font-style: italic;
-  font-size: 1.25rem;
+  margin: 1.5rem 0;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 3px solid #3b82f6;
+  color: #1e40af;
   font-weight: 500;
-  line-height: 1.8;
-  box-shadow: 
-    0 10px 30px rgba(100, 116, 139, 0.15),
-    0 4px 15px rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
 }
 
-.blog-content .blog-quote::before {
-  content: '"';
-  position: absolute;
-  top: -15px;
-  left: 20px;
-  font-size: 4rem;
-  color: #64748b;
-  font-family: serif;
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.blog-content .blog-quote::after {
-  content: '💬';
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 1.25rem;
-  opacity: 0.7;
-}
-
-/* 💻 コードブロック - プロフェッショナル */
-.blog-content .blog-code {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: 
-    linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-  border-radius: 1rem;
-  border: 2px solid #475569;
-  color: #e2e8f0;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
-  font-size: 1rem;
-  line-height: 1.7;
-  overflow-x: auto;
-  box-shadow: 
-    0 15px 40px rgba(15, 23, 42, 0.5),
-    0 5px 15px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.blog-content .blog-code::before {
-  content: '💻';
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 1.25rem;
-  opacity: 0.7;
-}
-
-.blog-content .blog-inline-code {
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-  color: #475569;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.5rem;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
-  font-size: 0.9rem;
+/* 注意事項ボックス - シンプルなオレンジ色 */
+.blog-content .blog-box {
+  margin: 1.5rem 0;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 3px solid #f59e0b;
+  color: #d97706;
   font-weight: 600;
-  border: 2px solid #cbd5e1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 📊 美しいテーブル - プロフェッショナル */
+/* 💬 引用ブロック - シンプルなグレー */
+.blog-content .blog-quote {
+  margin: 1.5rem 0;
+  padding: 0.75rem 0 0.75rem 1rem;
+  border-left: 3px solid #6b7280;
+  color: #4b5563;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* 💻 コードブロック - ダークテーマ */
+.blog-content .blog-code {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #1f2937;
+  border-radius: 0.5rem;
+  color: #e5e7eb;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* インラインコード */
+.blog-content .blog-inline-code {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* 📊 テーブル */
 .blog-content .blog-table {
   width: 100%;
-  margin: 2.5rem 0;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: white;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.05);
+  margin: 2rem 0;
+  border-collapse: collapse;
   border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 0.875rem;
 }
 
 .blog-content .blog-table-header {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
-  color: white;
-  padding: 1.5rem 2rem;
-  font-weight: 700;
-  font-size: 1.125rem;
+  background: #f9fafb;
+  color: #374151;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
   text-align: left;
-  border-bottom: 3px solid #1e40af;
-  position: relative;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .blog-content .blog-table-cell {
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid #e5e7eb;
-  color: #374151;
-  font-size: 1rem;
-  line-height: 1.6;
-  transition: all 0.2s ease;
-}
-
-.blog-content .blog-table-row:nth-child(even) .blog-table-cell {
-  background: linear-gradient(90deg, #f9fafb 0%, #f3f4f6 100%);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #4b5563;
 }
 
 .blog-content .blog-table-row:hover .blog-table-cell {
-  background: linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 100%);
-  transform: scale(1.01);
+  background: #f9fafb;
 }
 
-/* リストアイテム - モダンデザイン */
+/* リストアイテム */
 .blog-content .blog-list {
-  margin: 0.75rem 0;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(90deg, #f9fafb 0%, #f3f4f6 100%);
-  border-left: 4px solid #6b7280;
-  border-radius: 0.75rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-left: 2px solid #d1d5db;
   list-style: none;
-  color: #374151;
-  font-size: 1.125rem;
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.05),
-    0 2px 6px rgba(0, 0, 0, 0.03);
-  position: relative;
-  transition: all 0.2s ease;
-}
-
-.blog-content .blog-list:hover {
-  transform: translateX(8px);
-  box-shadow: 
-    0 6px 20px rgba(0, 0, 0, 0.1),
-    0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #4b5563;
 }
 
 .blog-content .blog-list::before {
-  content: '✅';
-  font-size: 1.25rem;
-  margin-right: 0.75rem;
-  animation: check-bounce 3s ease-in-out infinite;
+  content: '•';
+  color: #6b7280;
+  margin-right: 0.5rem;
 }
 
-@keyframes check-bounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* ===========================================
-   段落とテキストの改善
-   ========================================== */
-
+/* 段落 */
 .blog-content .blog-paragraph {
-  margin: 2rem 0;
-  line-height: 1.9;
+  margin: 1rem 0;
+  line-height: 1.7;
   color: #374151;
-  font-size: 1.125rem;
-  text-align: justify;
-  text-justify: inter-ideograph;
-  text-indent: 1em;
-  hyphens: auto;
+  font-size: 1rem;
 }
 
 .blog-content .blog-paragraph:first-child {
-  text-indent: 0;
+  margin-top: 0;
 }
 
 /* 改行の調整 */
 .blog-content .blog-break {
   display: block;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   content: "";
-  height: 1rem;
+  height: 0.5rem;
 }
 
-/* ===========================================
-   アイコンとアニメーション
-   ========================================== */
-
+/* アイコン表示の削除 */
 .blog-content .blog-h1-icon,
 .blog-content .blog-h2-icon,
 .blog-content .blog-h3-icon {
-  margin-right: 1rem;
-  font-size: 1.5em;
-  display: inline-block;
-  animation: icon-sparkle 3s ease-in-out infinite;
+  display: none;
 }
 
-@keyframes icon-sparkle {
-  0%, 100% { 
-    transform: scale(1) rotate(0deg);
-    filter: brightness(1);
-  }
-  25% { 
-    transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.2);
-  }
-  75% { 
-    transform: scale(1.05) rotate(-3deg);
-    filter: brightness(1.1);
-  }
+/* 全てのアニメーションを無効化 */
+.blog-content *,
+.blog-content *::before,
+.blog-content *::after {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
-/* ===========================================
-   レスポンシブデザイン
-   ========================================== */
-
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
   .blog-content {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
   
   .blog-content .blog-h1 {
-    font-size: 1.75rem;
-    padding: 1.5rem 1.25rem;
-    margin: 2rem 0 1.5rem 0;
-  }
-  
-  .blog-content .blog-h2 {
-    font-size: 1.5rem;
-    padding: 1.25rem 1rem;
-    margin: 1.75rem 0 1.25rem 0;
-  }
-  
-  .blog-content .blog-h3 {
-    font-size: 1.25rem;
-    padding: 1rem 0.875rem;
+    font-size: 1.375rem;
     margin: 1.5rem 0 1rem 0;
   }
   
-  .blog-content .blog-sticky-note,
-  .blog-content .blog-point,
-  .blog-content .blog-box,
-  .blog-content .blog-quote {
-    padding: 1.25rem 1rem;
-    margin: 1.5rem 0;
+  .blog-content .blog-h2 {
+    font-size: 1.125rem;
+    margin: 1.25rem 0 0.75rem 0;
+  }
+  
+  .blog-content .blog-h3 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .blog-content .blog-table {
+    font-size: 0.75rem;
   }
   
   .blog-content .blog-table-header,
   .blog-content .blog-table-cell {
-    padding: 1rem 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .blog-content .blog-h1 {
-    font-size: 1.5rem;
-    padding: 1.25rem 1rem;
-  }
-  
-  .blog-content .blog-h2 {
-    font-size: 1.375rem;
-    padding: 1rem 0.875rem;
-  }
-  
-  .blog-content .blog-h3 {
-    font-size: 1.125rem;
-    padding: 0.875rem 0.75rem;
-  }
-}
-
-/* ===========================================
-   アクセシビリティ改善
-   ========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .blog-content * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .blog-content {
-    color: #e2e8f0;
-  }
-  
-  .blog-content .blog-paragraph {
-    color: #cbd5e1;
-  }
-  
-  .blog-content .blog-table {
-    background: #1a202c;
-    border-color: #4a5568;
-  }
-  
-  .blog-content .blog-table-cell {
-    color: #e2e8f0;
-    border-color: #4a5568;
+    padding: 0.5rem 0.75rem;
   }
 }
 
 /* 印刷時の最適化 */
 @media print {
-  .blog-content .blog-h1,
-  .blog-content .blog-h2,
-  .blog-content .blog-h3,
-  .blog-content .blog-point,
-  .blog-content .blog-box,
-  .blog-content .blog-sticky-note {
+  .blog-content * {
     background: none !important;
     box-shadow: none !important;
-    border: 2px solid #ccc !important;
-    page-break-inside: avoid;
-  }
-  
-  .blog-content .blog-h1,
-  .blog-content .blog-h2,
-  .blog-content .blog-h3 {
-    color: #000 !important;
+    border-color: #ccc !important;
   }
 }
