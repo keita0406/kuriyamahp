@@ -1258,10 +1258,8 @@ export default function Home() {
                       <span 
                         className="px-3 py-1 rounded-full text-white text-sm font-medium"
                         style={{ 
-                          backgroundColor: blog.category === '技術情報' ? '#10B981' : 
-                                         blog.category === '企業ニュース' ? '#F59E0B' : 
-                                         blog.category === '業界動向' ? '#8B5CF6' : 
-                                         blog.category === '製品紹介' ? '#EF4444' : '#3B82F6' 
+                                                      backgroundColor: blog.category === '縫製ニュース' ? '#10B981' :
+                            blog.category === 'サスティナブル' ? '#3B82F6' : '#6B7280' 
                         }}
                       >
                         {blog.category || 'ニュース'}
